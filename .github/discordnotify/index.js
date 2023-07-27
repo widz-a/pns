@@ -51,7 +51,7 @@ async function main() {
     
     console.log("Webhook: ", JSON.stringify(webhook, null, 2))
     
-    fetch(token, {
+    fetch(SNAPSHOT_WEBHOOK, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(webhook)

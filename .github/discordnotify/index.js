@@ -16,7 +16,8 @@ async function main() {
     }
     
     let githubInfoArray = [
-        `**Branch:** ${branch}`
+        `**Branch:** ${branch}`,
+        `**Status:** ${(success == undefined ? "tbh idk" : (success ? "success" : "failure"))}`,
     ];
 
     let resp = await getCompare(compareURL)

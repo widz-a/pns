@@ -8,14 +8,14 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 public class PnsConfig implements ConfigData {
 
     @ConfigEntry.Category("main")
-    @ConfigEntry.Gui.TransitiveObject
+    @ConfigEntry.Gui.CollapsibleObject
     public PunchConfig punch = new PunchConfig();
     public static class PunchConfig {
         public int delay = 143;
     }
 
     @ConfigEntry.Category("main")
-    @ConfigEntry.Gui.TransitiveObject
+    @ConfigEntry.Gui.CollapsibleObject
     public NodConfig nod = new NodConfig();
     public static class NodConfig {
         public int speed = 40;
@@ -27,7 +27,7 @@ public class PnsConfig implements ConfigData {
     }
 
     @ConfigEntry.Category("main")
-    @ConfigEntry.Gui.TransitiveObject
+    @ConfigEntry.Gui.CollapsibleObject
     public SneakConfig sneak = new SneakConfig();
     public static class SneakConfig {
         public int holdDelay = 100;

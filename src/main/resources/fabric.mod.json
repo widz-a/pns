@@ -11,10 +11,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "withicality.pns.client.PnsClient"
+      "withicality.pns.PnsClient"
     ],
-    "main": [
-      "withicality.pns.Pns"
+    "modmenu": [
+      "withicality.pns.PnsModMenuIntergration"
     ]
   },
   "mixins": [

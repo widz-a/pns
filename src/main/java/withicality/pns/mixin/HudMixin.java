@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import withicality.pns.client.PnsClient;
+import withicality.pns.PnsClient;
 
 import java.util.Arrays;
 
@@ -22,23 +22,13 @@ public class HudMixin {
     @Inject(method = "render", at = @At("RETURN"))
     public void a(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
         ClientPlayerEntity player = client.player;
+        if (client.options.debugEnabled) return;
         if (player == null) return;
 
         y = 20;
         this.matrices = matrices;
-
-        renderText("pns-" + FabricLoader.getInstance().getModContainer("pns").get().getMetadata().getVersion());
-        renderText("Settings:");
-        renderText("- MS_PER_SPEAK: " + PnsClient.Settings.MS_PER_SNEAK.val());
-        renderText("- MS_PER_HIT: " + PnsClient.Settings.MS_PER_HIT.val());
-        renderText("- PITCH_DOWN: " + PnsClient.Settings.PITCH_DOWN);
-        renderText("- PITCH_UP: " + PnsClient.Settings.PITCH_UP);
-        renderText("- ROTATION_SPEED: " + PnsClient.Settings.ROTATION_SPEED);
-        renderText("Debugs:");
-        renderText("- ENABLED: " + Arrays.toString(PnsClient.getEnabled()));
-        renderText("- HIT_IN_MS: " + (PnsClient.getHit() - System.currentTimeMillis()));
-        renderText("- SNEAK_IN_MS: " + (PnsClient.getShift() - System.currentTimeMillis()));
-        renderText("- NOD_UP: " + PnsClient.isNod());
+        renderText("Debug: pns-" + FabricLoader.getInstance().getModContainer("pns").get().getMetadata().getVersion());
+        renderText("{punch, nod, shift}: " + Arrays.toString(PnsClient.getEnabled()));
     }
 
     private void renderText(String text) {

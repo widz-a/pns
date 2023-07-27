@@ -58,8 +58,7 @@ jobs:
           name: ${{ format('Release {0}', github.run_number) }}
           fail_on_unmatched_files: true
           draft: false
-          tag_name: github.run_number
-
+          tag_name: ${{ github.run_number }}
   notify:
     name: Send job complete notification
     runs-on: ubuntu-latest
@@ -81,10 +80,10 @@ jobs:
           echo "RELEASE_ADDR=https://github.com/${{ github.repository }}/releases/tag/${{ github.run_number }}" >> $GITHUB_ENV
 
       - name: Check if failure
-        if: needs.build.result == 'failure' || needs.test.result == 'failure' || needs.release.result == 'failure'
+        if: ${{ failure() }}
         run: echo "SUCCESS=false" >> $GITHUB_ENV
       - name: Check if success
-        if: needs.build.result == 'success' && needs.test.result == 'success' && (needs.release.result == 'success' || github.event_name == 'schedule')
+        if: ${{ success() }} || (github.event_name == 'schedule')
         run: echo "SUCCESS=true" >> $GITHUB_ENV
 
       - name: Send to Discord

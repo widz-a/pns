@@ -7,7 +7,7 @@ const urlsplit = releaseAddress.split("/");
 const idR = urlsplit[urlsplit.length - 1];
 
 const urlsplit1 = snapshotAddress.split("/");
-const idS = urlsplit[urlsplit.length - 1];
+const idS = urlsplit1[urlsplit1.length - 1];
 
 async function main() {
     if (SNAPSHOT_WEBHOOK == null || SNAPSHOT_WEBHOOK == "") {
@@ -16,8 +16,7 @@ async function main() {
     }
     
     let githubInfoArray = [
-        `**Branch:** ${branch}`,
-        `**Status:** ${(success == undefined ? "tbh idk" : (success ? "success" : "failure"))}`,
+        `**Branch:** ${branch}`
     ];
 
     let resp = await getCompare(compareURL)
@@ -34,7 +33,7 @@ async function main() {
     
     let description = githubInfoArray.concat(hasChanges ? changesArray : []);
     description.push(`\n**Info:** [${idS}](${snapshotAddress})`)
-    description.push(`**Download:** [${idR}](${releaseAddress})`)
+    description.push(`**Download:** [v${idR}](${releaseAddress})`)
     
     const webhook = {
         username: `${named} Builds`,

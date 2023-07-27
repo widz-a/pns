@@ -30,6 +30,7 @@ public class PnsConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public SneakConfig sneak = new SneakConfig();
     public static class SneakConfig {
-        public int delay = 200;
+        public int holdDelay = 100;
+        public int releaseDelay = 100;
     }
 }

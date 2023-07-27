@@ -64,8 +64,10 @@ public class PnsClient implements ClientModInitializer {
                 if (shift == 0) shift = System.currentTimeMillis();
                 else if (shift < System.currentTimeMillis()) {
                     KeyBinding.setKeyPressed(KeyBindingHelper.getBoundKeyOf(client.options.sneakKey), true);
-                    setTimeout(() -> KeyBinding.setKeyPressed(KeyBindingHelper.getBoundKeyOf(client.options.sneakKey), false), 100);
-                    shift = System.currentTimeMillis() + config.sneak.delay; //og: 200
+                    setTimeout(() -> {
+                        KeyBinding.setKeyPressed(KeyBindingHelper.getBoundKeyOf(client.options.sneakKey), false);
+                        shift = System.currentTimeMillis() + config.sneak.holdDelay;
+                    }, config.sneak.releaseDelay);
                 }
             }
 

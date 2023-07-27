@@ -1,0 +1,21 @@
+{
+  "key.png.hit": "Punch",
+  "key.pns.nod": "Nod",
+  "key.pns.shift": "Sneak",
+
+  "text.autoconfig.pns.title": "PNS Mod",
+
+  "text.autoconfig.pns.option.punch": "Punch",
+  "text.autoconfig.pns.option.punch.delay": "Delay for each punch",
+
+  "text.autoconfig.pns.option.nod": "Nod",
+  "text.autoconfig.pns.option.nod.speed": "Rotation Speed",
+  "text.autoconfig.pns.option.nod.degreeUp": "Max Pitch",
+  "text.autoconfig.pns.option.nod.degreeDown": "Min Pitch",
+  "text.autoconfig.pns.option.nod.delayUp": "Delay before going up",
+  "text.autoconfig.pns.option.nod.delayDown": "Delay before going down",
+
+  "text.autoconfig.pns.option.sneak": "Sneak",
+  "text.autoconfig.pns.option.sneak.holdDelay": "Delay before start sneaking",
+  "text.autoconfig.pns.option.sneak.releaseDelay": "Delay before stop sneaking"
+}

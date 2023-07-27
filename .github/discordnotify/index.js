@@ -10,7 +10,7 @@ const urlsplit1 = snapshotAddress.split("/");
 const idS = urlsplit[urlsplit.length - 1];
 
 async function main() {
-    if (token == null || token == "") {
+    if (SNAPSHOT_WEBHOOK == null || SNAPSHOT_WEBHOOK == "") {
         console.log(`SNAPSHOT_WEBHOOK doesnt exist.`);
         return;
     }
